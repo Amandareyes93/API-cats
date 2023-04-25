@@ -81,3 +81,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+section img {
+  max-width: 80%;
+  height: auto;
+}
