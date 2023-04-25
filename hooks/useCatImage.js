@@ -6,10 +6,8 @@ export const useCatImage = ({ fact }) => {
   const [imageUrl, setImageUrl] = useState();
 
   const callService = async (fact) => {
-    const demo = fact;
-    let threeWords = demo.split(' ', 3).join(' ');
+    let threeWords = fact.split(' ', 3).join(' ');
     const url = await getImageService(URL_IMAGE_CAT_SAYING, threeWords);
-    debugger;
     setImageUrl(url);
   };
 
