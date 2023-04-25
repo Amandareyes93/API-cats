@@ -6,6 +6,7 @@ export const getFactService = async (URL) => {
 };
 
 export const getImageService = async (URL, threeWords) => {
+  debugger;
   const response = await fetch(`${URL}${threeWords}?size=50&color=red&json=true`);
   const { url } = await response.json();
   return url;

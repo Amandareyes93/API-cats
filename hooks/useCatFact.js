@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { getFactService } from '../services';
-import { URL_API_RANDOM_FACT } from '../constants/constants';
+import { URL_API_RANDOM_FACT } from '../constants';
 
 export const useCatFact = () => {
   const [fact, setFact] = useState();
 
-  const refreshFact = () => {
-    getFactService(URL_API_RANDOM_FACT).then((randomFact) => {
-      setFact(randomFact);
-    });
+  const refreshFact = async () => {
+    const randomFact = await getFactService(URL_API_RANDOM_FACT);
+    setFact(randomFact);
   };
-  useEffect(refreshFact, []);
+
+  useEffect(() => {
+    refreshFact();
+  }, []);
+
   return { fact, refreshFact };
 };
